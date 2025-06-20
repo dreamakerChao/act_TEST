@@ -12,6 +12,7 @@ body {
     margin: 1rem;
     font-size: 1.8rem;
     color: #ffffff;
+    text-align: center;
   }
   
   /* 圖片輪播區容器 */
@@ -69,17 +70,20 @@ body {
   }
   
   /* 狀態樣式 */
-  .slide.new .tag {
+  .slide.new .tag,
+  li.new .status {
     color: #ff4d4d;
     border-color: #ff4d4d;
   }
   
-  .slide.open .tag {
+  .slide.open .tag,
+  li.open .status {
     color: #4caf50;
     border-color: #4caf50;
   }
   
-  .slide.expired .tag {
+  .slide.expired .tag,
+  li.expired .status {
     color: #aaaaaa;
     border-color: #aaaaaa;
   }
@@ -118,8 +122,8 @@ body {
   
   /* 清單樣式 */
   .event-list {
-    list-style-type: none;
-    padding-left: 0;
+    list-style-type: disc;
+    padding-left: 1.5rem;
   }
   
   .event-list li {
@@ -135,5 +139,12 @@ body {
   .event-list a:hover {
     color: #ff4d4d;
     text-decoration: underline;
+  }
+  
+  /* 清單中的狀態文字樣式 */
+  .status {
+    margin-left: 0.5em;
+    font-size: 0.8rem;
+    font-weight: bold;
   }
   

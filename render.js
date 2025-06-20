@@ -25,10 +25,15 @@ fetch('events.json')
 
       // 清單區塊
       const li = document.createElement('li');
-      li.className = `list-item ${event.tag === '新' ? 'new' : event.tag === '已過期' ? 'expired' : 'open'}`;
+
+      // 加上狀態 class
+      if (event.tag === '新') li.classList.add('new');
+      if (event.tag === '已過期') li.classList.add('expired');
+      if (event.tag === '報名中') li.classList.add('open');
+
       li.innerHTML = `
         <a href="${event.link}" target="_blank">${event.title}</a>
-        <span class="tag">${event.tag}</span>
+        <span class="status">${event.tag}</span>
       `;
       list.appendChild(li);
     });
