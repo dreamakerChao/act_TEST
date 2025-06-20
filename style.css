@@ -1,4 +1,4 @@
-/* 基本字體與背景 */
+/* 基本樣式 */
 body {
     font-family: sans-serif;
     margin: 0;
@@ -12,32 +12,33 @@ body {
     font-size: 1.8rem;
   }
   
-  /* 外框：橫向滑動區域，不含 padding */
+  /* 外框含左右 padding，讓圖片能左右露出一點 */
   .slider-wrap {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 0; /* 重點：移除 padding，避免圖片邊角露出 */
+    padding: 1rem 10vw;  /* 左右保留空間 */
+    box-sizing: border-box;
   }
   
-  /* 內層容器：橫向排版 + gap + padding */
+  /* 橫向容器 */
   .slider {
     display: flex;
     gap: 1rem;
-    padding: 1rem; /* 移到這裡 */
   }
   
-  /* 每張活動卡片 */
+  /* 單張圖片卡片 */
   .slide {
     flex: 0 0 auto;
-    width: calc(100% / 3 - 1rem);
-    scroll-snap-align: start;
+    width: 80vw;
+    max-width: 300px;
+    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  /* 圖片外框（可用於定位） */
+  /* 圖片包裹 */
   .image-wrapper {
     position: relative;
     width: 100%;
@@ -48,10 +49,10 @@ body {
     height: auto;
     display: block;
     border-radius: 8px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
   }
   
-  /* 標籤 */
+  /* 標籤：置中不遮圖 */
   .tag {
     margin-bottom: 8px;
     padding: 4px 12px;
@@ -65,7 +66,7 @@ body {
     white-space: nowrap;
   }
   
-  /* 標籤顏色對應 */
+  /* 標籤色彩 */
   .slide.new .tag {
     color: crimson;
     border-color: crimson;
@@ -81,17 +82,22 @@ body {
     border-color: gray;
   }
   
-  /* 平板：兩張 */
-  @media (max-width: 1024px) {
+  /* 響應式 */
+  @media (min-width: 1025px) {
     .slide {
-      width: calc(100% / 2 - 1rem);
+      width: 28vw;
     }
   }
   
-  /* 手機：一張 */
-  @media (max-width: 600px) {
+  @media (min-width: 769px) and (max-width: 1024px) {
     .slide {
-      width: 100%;
+      width: 38vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .slide {
+      width: 80vw;
     }
   
     .tag {
