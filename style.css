@@ -48,22 +48,34 @@ body {
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
   }
   
-  /* 標籤：新／過期 */
+  /* 通用標籤 */
   .tag {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: white;
-    color: crimson;
     padding: 4px 10px;
     font-size: 0.8rem;
     font-weight: bold;
     border-radius: 4px;
-    border: 1px solid crimson;
-    z-index: 1;
+    border: 1px solid;
+    background-color: white;
     white-space: nowrap;
+    z-index: 1;
   }
   
+  /* 標籤：新! */
+  .slide.new .tag {
+    color: crimson;
+    border-color: crimson;
+  }
+  
+  /* 標籤：報名中 */
+  .slide.open .tag {
+    color: green;
+    border-color: green;
+  }
+  
+  /* 標籤：已過期 */
   .slide.expired .tag {
     color: gray;
     border-color: gray;
