@@ -11,27 +11,28 @@ body {
   }
   
   .slider-wrap {
-    overflow: hidden;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    position: relative;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
   }
   
   .slider {
     display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
+    width: fit-content;
   }
   
   .slide {
-    min-width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
     position: relative;
+    scroll-snap-align: start;
   }
   
   .slide img {
     width: 100%;
     height: auto;
+    display: block;
     border-radius: 8px;
   }
   
@@ -46,10 +47,17 @@ body {
     border: 1px solid crimson;
     border-radius: 4px;
     font-weight: bold;
+    pointer-events: none;
   }
   
   .slide.expired .tag {
     color: gray;
     border-color: gray;
+  }
+  
+  a {
+    display: block;
+    position: relative;
+    text-decoration: none;
   }
   
