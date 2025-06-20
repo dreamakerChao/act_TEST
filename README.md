@@ -1,6 +1,6 @@
 # 網址
 
-主頁：https://dreamakerchao.github.io/act_TEST.html
+主頁：https://dreamakerchao.github.io/act_TEST
 
 聯絡：https://dreamakerchao.github.io/act_TEST/contact_info.html
 
