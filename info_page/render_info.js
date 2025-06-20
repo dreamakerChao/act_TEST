@@ -11,30 +11,43 @@ fetch('info.json')
       h2.textContent = section.category;
       sectionDiv.appendChild(h2);
 
-      const ul = document.createElement('ul');
+      // 是否包含圖片
+      const hasImageOnly = section.items.length === 1 && section.items[0].image;
 
-      section.items.forEach(item => {
-        const li = document.createElement('li');
+      if (hasImageOnly) {
+        const item = section.items[0];
+        const imgLink = document.createElement('a');
+        imgLink.href = item.image;
+        imgLink.target = '_blank';
 
-        if (item.link && item.text) {
-          const a = document.createElement('a');
-          a.href = item.link;
-          a.target = '_blank';
-          a.textContent = item.text;
-          li.appendChild(a);
-        } else if (item.image) {
-          const img = document.createElement('img');
-          img.src = item.image;
-          img.alt = item.alt || '';
-          li.appendChild(img);
-        } else if (item.text) {
-          li.textContent = item.text;
-        }
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.alt || '';
+        imgLink.appendChild(img);
 
-        ul.appendChild(li);
-      });
+        sectionDiv.appendChild(imgLink);
+      } else {
+        const ul = document.createElement('ul');
 
-      sectionDiv.appendChild(ul);
+        section.items.forEach(item => {
+          const li = document.createElement('li');
+
+          if (item.link && item.text) {
+            const a = document.createElement('a');
+            a.href = item.link;
+            a.target = '_blank';
+            a.textContent = item.text;
+            li.appendChild(a);
+          } else if (item.text) {
+            li.textContent = item.text;
+          }
+
+          ul.appendChild(li);
+        });
+
+        sectionDiv.appendChild(ul);
+      }
+
       container.appendChild(sectionDiv);
     });
   })
