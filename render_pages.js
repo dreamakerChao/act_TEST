@@ -30,7 +30,6 @@ function loadInfo(jsonPath, containerId) {
             if (item.link && item.text) {
               const a = document.createElement('a');
               a.href = item.link;
-              a.target = '_blank';
               a.textContent = item.text;
               li.appendChild(a);
             } else if (item.text) {

@@ -16,7 +16,7 @@ fetch('events.json')
       slide.innerHTML = `
         <span class="tag">${event.tag}</span>
         <div class="image-wrapper">
-          <a href="${event.link}" target="_blank">
+          <a href="${event.link}" >
             <img src="${event.image}" alt="${event.title}" />
           </a>
         </div>
