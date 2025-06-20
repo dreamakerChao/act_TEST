@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .slider-wrap {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  
+  .slider {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    justify-content: center;
+  }
+  
+  .slider a {
+    flex: 0 0 90%;
+    max-width: 600px;
+    scroll-snap-align: start;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+    margin: 0 auto;
+  }
+  
+  .slider a:hover {
+    transform: scale(1.03);
+  }
+  
+  .slider img {
+    width: 100%;
+    max-height: 60vh;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+  
