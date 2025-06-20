@@ -1,48 +1,55 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
+    padding: 0;
+    background: #f9f9f9;
+    text-align: center;
   }
   
   h1 {
-    text-align: center;
-    color: #333;
+    margin: 1rem;
   }
   
   .slider-wrap {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     width: 100%;
+    max-width: 600px;
+    margin: auto;
+    position: relative;
   }
   
   .slider {
     display: flex;
-    padding: 20px 0;
-    gap: 16px;
+    transition: transform 0.5s ease;
+    width: 100%;
   }
   
-  .slider a {
-    flex: 0 0 100%;
-    max-width: 90vw;
-    margin: 0 auto;
-    scroll-snap-align: center; /* 改為置中對齊 */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease;
+  .slide {
+    min-width: 100%;
+    position: relative;
   }
   
-  .slider a:hover {
-    transform: scale(1.03);
-  }
-  
-  .slider img {
+  .slide img {
     width: 100%;
     height: auto;
-    max-height: 60vh;
-    object-fit: cover;
-    display: block;
+    border-radius: 8px;
+  }
+  
+  .tag {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: white;
+    color: crimson;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border: 1px solid crimson;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .slide.expired .tag {
+    color: gray;
+    border-color: gray;
   }
   
