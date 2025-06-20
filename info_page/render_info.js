@@ -1,38 +1,41 @@
 fetch('info.json')
-  .then(res => res.json())
+  .then(response => response.json())
   .then(data => {
-    const container = document.getElementById('info-content');
+    const container = document.getElementById('info-container');
 
     data.forEach(section => {
-      const title = document.createElement('div');
-      title.className = 'Title2';
-      title.textContent = section.category;
-      container.appendChild(title);
+      const sectionDiv = document.createElement('div');
+      sectionDiv.className = 'category';
 
-      const context = document.createElement('div');
-      context.className = 'context';
+      const h2 = document.createElement('h2');
+      h2.textContent = section.category;
+      sectionDiv.appendChild(h2);
+
+      const ul = document.createElement('ul');
 
       section.items.forEach(item => {
-        if (item.link) {
+        const li = document.createElement('li');
+
+        if (item.link && item.text) {
           const a = document.createElement('a');
           a.href = item.link;
           a.target = '_blank';
           a.textContent = item.text;
-          context.appendChild(a);
+          li.appendChild(a);
         } else if (item.image) {
           const img = document.createElement('img');
           img.src = item.image;
           img.alt = item.alt || '';
-          img.style.width = '90%';
-          context.appendChild(img);
+          li.appendChild(img);
         } else if (item.text) {
-          const li = document.createElement('li');
           li.textContent = item.text;
-          context.appendChild(li);
         }
+
+        ul.appendChild(li);
       });
 
-      container.appendChild(context);
+      sectionDiv.appendChild(ul);
+      container.appendChild(sectionDiv);
     });
   })
-  .catch(err => console.error('載入資訊失敗', err));
+  .catch(err => console.error('載入 info.json 失敗：', err));

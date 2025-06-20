@@ -2,51 +2,62 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
+    background-color: #1e1e1e;
     color: #f0f0f0;
   }
   
-  .Title1 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-top: 10px;
+  h1.info-title {
     text-align: center;
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    color: #f9f9f9;
   }
   
-  .Title2 {
-    font-size: 26px;
-    font-weight: bold;
-    color: #dddddd;
-    margin-top: 20px;
+  .info-container {
+    padding: 0 1.5rem;
+    max-width: 800px;
+    margin: auto;
   }
   
-  .context {
-    font-size: 18px;
+  .category {
+    margin-top: 2rem;
+  }
+  
+  .category h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    border-left: 4px solid #3fa9f5;
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .category ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    text-align: left;
+  }
+  
+  .category li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-left: 20px;
-    margin-bottom: 20px;
     color: #cccccc;
   }
   
-  .context a {
-    color: #4fc3f7;
+  .category a {
+    color: #87cefa;
     text-decoration: none;
   }
   
-  .context a:hover {
+  .category a:hover {
     text-decoration: underline;
   }
   
-  .context li {
-    margin-bottom: 10px;
-    list-style-type: disc;
-    list-style-position: inside;
-  }
-  
-  .context img {
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  .category img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-top: 0.5rem;
   }
   
