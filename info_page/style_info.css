@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .Title1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .Title2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #dddddd;
+    margin-top: 20px;
+  }
+  
+  .context {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #cccccc;
+  }
+  
+  .context a {
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+  
+  .context a:hover {
+    text-decoration: underline;
+  }
+  
+  .context li {
+    margin-bottom: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+  
+  .context img {
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  }
+  

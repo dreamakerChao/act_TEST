@@ -1,0 +1,50 @@
+[
+    {
+      "category": "資源教室網址",
+      "items": [
+        {
+          "text": "＞資源教室網址",
+          "link": "https://student.ntust.edu.tw/p/412-1053-8272.php?Lang=zh-tw"
+        }
+      ]
+    },
+    {
+      "category": "無障礙設施位置圖",
+      "items": [
+        {
+          "image": "https://student.ntust.edu.tw/var/file/53/1053/img/2609/874062470.png",
+          "alt": "無障礙設施位置圖"
+        }
+      ]
+    },
+    {
+      "category": "諮商預約系統",
+      "items": [
+        {
+          "text": "＞預約連結",
+          "link": "https://sa.ntust.edu.tw/WebCounseling/Front_Index/FrontIndex/Index"
+        }
+      ]
+    },
+    {
+      "category": "相關諮詢電話",
+      "items": [
+        {
+          "text": "校安專線：0800-695-995"
+        },
+        {
+          "text": "安心專線：1925"
+        },
+        {
+          "text": "生命線：1995"
+        },
+        {
+          "text": "張老師：1980"
+        },
+        {
+          "text": "衛福部福利諮詢專線：1957"
+        }
+      ]
+    }
+  ]
+  
