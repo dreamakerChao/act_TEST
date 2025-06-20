@@ -12,21 +12,22 @@ body {
     font-size: 1.8rem;
   }
   
-  /* 外框，讓 slider 可橫向滑動 */
+  /* 外框：橫向滑動區域，不含 padding */
   .slider-wrap {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 1rem;
+    padding: 0; /* 重點：移除 padding，避免圖片邊角露出 */
   }
   
-  /* 內層橫向滑動區域 */
+  /* 內層容器：橫向排版 + gap + padding */
   .slider {
     display: flex;
     gap: 1rem;
+    padding: 1rem; /* 移到這裡 */
   }
   
-  /* 單張圖片區塊：預設桌機顯示 3 張 */
+  /* 每張活動卡片 */
   .slide {
     flex: 0 0 auto;
     width: calc(100% / 3 - 1rem);
@@ -36,10 +37,10 @@ body {
     align-items: center;
   }
   
-  /* 圖片容器（可用於定位） */
+  /* 圖片外框（可用於定位） */
   .image-wrapper {
-    width: 100%;
     position: relative;
+    width: 100%;
   }
   
   .image-wrapper img {
@@ -47,10 +48,10 @@ body {
     height: auto;
     display: block;
     border-radius: 8px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* 標籤（固定在上方置中） */
+  /* 標籤 */
   .tag {
     margin-bottom: 8px;
     padding: 4px 12px;
@@ -64,7 +65,7 @@ body {
     white-space: nowrap;
   }
   
-  /* 標籤顏色對應狀態 */
+  /* 標籤顏色對應 */
   .slide.new .tag {
     color: crimson;
     border-color: crimson;
