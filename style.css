@@ -1,156 +1,159 @@
 /* 基本樣式 */
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #121212;
-    color: #f0f0f0;
-    text-align: center;
-  }
-  
-  h1, h2 {
-    margin: 1rem;
-    font-size: 1.8rem;
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  /* 圖片輪播區容器 */
-  .slider-wrap {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 1rem 10vw;
-    box-sizing: border-box;
-  }
-  
-  /* 橫向排列卡片 */
-  .slider {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  /* 單一活動卡片 */
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #121212;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 1rem;
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* 圖片輪播區容器 */
+.slider-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 10vw;
+  box-sizing: border-box;
+}
+
+/* 橫向排列卡片 */
+.slider {
+  display: flex;
+  gap: 1rem;
+}
+
+/* 單一活動卡片 */
+.slide {
+  flex: 0 0 auto;
+  width: 80vw;
+  max-width: 300px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 活動圖片容器 */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 強制圖片容器維持比例 */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+/* 活動圖片樣式 */
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 填滿容器但不變形 */
+  display: block;
+}
+
+/* 標籤樣式 */
+.tag {
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid;
+  background-color: #1e1e1e;
+  display: inline-block;
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* 狀態樣式 */
+.slide.new .tag,
+li.new .status {
+  color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+.slide.open .tag,
+li.open .status {
+  color: #4caf50;
+  border-color: #4caf50;
+}
+
+.slide.expired .tag,
+li.expired .status {
+  color: #aaaaaa;
+  border-color: #aaaaaa;
+}
+
+/* 響應式調整圖片卡片寬度 */
+@media (min-width: 1025px) {
   .slide {
-    flex: 0 0 auto;
+    width: 28vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slide {
+    width: 38vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
     width: 80vw;
-    max-width: 300px;
-    scroll-snap-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-  
-  /* 活動圖片容器 */
-  .image-wrapper {
-    position: relative;
-    width: 100%;
-  }
-  
-  .image-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
-  }
-  
-  /* 標籤樣式 */
+
   .tag {
-    margin-bottom: 8px;
-    padding: 4px 12px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px;
-    border: 1px solid;
-    background-color: #1e1e1e;
-    display: inline-block;
-    align-self: center;
-    white-space: nowrap;
+    font-size: 0.7rem;
+    padding: 3px 6px;
   }
-  
-  /* 狀態樣式 */
-  .slide.new .tag,
-  li.new .status {
-    color: #ff4d4d;
-    border-color: #ff4d4d;
-  }
-  
-  .slide.open .tag,
-  li.open .status {
-    color: #4caf50;
-    border-color: #4caf50;
-  }
-  
-  .slide.expired .tag,
-  li.expired .status {
-    color: #aaaaaa;
-    border-color: #aaaaaa;
-  }
-  
-  /* 響應式調整圖片卡片寬度 */
-  @media (min-width: 1025px) {
-    .slide {
-      width: 28vw;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .slide {
-      width: 38vw;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .slide {
-      width: 80vw;
-    }
-  
-    .tag {
-      font-size: 0.7rem;
-      padding: 3px 6px;
-    }
-  }
-  
-  /* 活動清單區 */
-  .list-wrap {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    text-align: left;
-  }
-  
-  /* 清單樣式 */
-  .event-list {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-  }
-  
-  .event-list li {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-  }
-  
-  .event-list a {
-    color: #cccccc;
-    text-decoration: none;
-  }
-  
-  .event-list a:hover {
-    color: #ff4d4d;
-    text-decoration: underline;
-  }
-  
-  /* 清單中的狀態文字樣式 */
-  .status {
-    margin-left: 0.5em;
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
-  
-  .date {
-    margin-left: 8px;
-    color: #666;
-    font-size: 0.9em;
-  }
-  
+}
+
+/* 活動清單區 */
+.list-wrap {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+/* 清單樣式 */
+.event-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.event-list li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.event-list a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.event-list a:hover {
+  color: #ff4d4d;
+  text-decoration: underline;
+}
+
+/* 清單中的狀態文字樣式 */
+.status {
+  margin-left: 0.5em;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.date {
+  margin-left: 8px;
+  color: #666;
+  font-size: 0.9em;
+}
