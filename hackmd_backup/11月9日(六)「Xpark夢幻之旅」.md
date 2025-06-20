@@ -1,5 +1,4 @@
 ---
-layout: default
 title: 11月9日(六)「Xpark夢幻之旅」
 
 ---

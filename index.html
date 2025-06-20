@@ -9,32 +9,32 @@
 <body>
   <h1>最新消息</h1>
   <div class="slider-wrap">
-    <div class="slider">
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-手語班/">
-        <img src="./images/113-1/手語班.jpg" alt="手語課" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-時間藏寶圖/">
-        <img src="./images/113-1/時間藏寶圖.jpg" alt="時間藏寶圖" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-桌遊工作坊/">
-        <img src="./images/113-1/玩出調節力.jpg" alt="桌遊工作坊" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-刷出戀愛風格/">
-        <img src="./images/113-1/刷出戀愛風格.jpg" alt="刷出戀愛風格" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-交朋友等於開盲盒/">
-        <img src="./images/113-1/交朋友等於開盲盒.jpg" alt="交朋友＝開盲盒" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-Xpark夢幻之旅/">
-        <img src="./images/113-1/Xpark之旅.jpg" alt="Xpark 夢幻之旅" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-剛剛好的距離/">
-        <img src="./images/113-1/剛剛好的距離.jpg" alt="剛剛好的距離" />
-      </a>
-      <a href="https://dreamakerchao.github.io/act_TEST/events/113-1/113-1-資源教室期初聚會/">
-        <img src="./images/113-1/期初聚會.jpg" alt="資源教室期初聚會" />
-      </a>
+    <div class="slider" id="slider">
+      <div class="slide new">
+        <a href="https://hackmd.io/@NTUSTresource/r1hJgNfNle">
+          <img src="./images/113-1/sign_language_act.jpg" alt="手語課" />
+          <span class="tag">新</span>
+        </a>
+      </div>
+      <div class="slide expired">
+        <a href="https://hackmd.io/@NTUSTresource/r1b-D4M4ll">
+          <img src="./images/113-1/something_behind_time_act.jpg" alt="時間藏寶圖" />
+          <span class="tag">過期</span>
+        </a>
+      </div>
+      <!-- 繼續加其他活動，照這格式 -->
     </div>
   </div>
+
+  <script>
+    // Auto slider
+    const slider = document.getElementById("slider");
+    let offset = 0;
+    setInterval(() => {
+      const slides = slider.querySelectorAll('.slide');
+      offset = (offset + 1) % slides.length;
+      slider.style.transform = `translateX(-${offset * 100}%)`;
+    }, 3000); // 每3秒輪播一次
+  </script>
 </body>
 </html>

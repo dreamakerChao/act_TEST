@@ -1,6 +1,0 @@
-title: 最新消息
-description: 活動網站
-baseurl: ""  # 如果是 user/organization page，這裡保持空白；如果是 project page，寫 "/你的-repo-name"
-markdown: kramdown
-permalink: pretty
-theme: minima  # 可換掉或刪除使用自訂樣式

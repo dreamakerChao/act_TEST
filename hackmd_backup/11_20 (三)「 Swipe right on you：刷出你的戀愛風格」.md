@@ -1,5 +1,4 @@
 ---
-layout: default
 title: 11/20 (三)「 Swipe right on you：刷出你的戀愛風格」
 
 ---
