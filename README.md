@@ -1,9 +1,9 @@
 # 網址
 
-主頁：[https://dreamakerchao.github.io/act_TEST/]https://dreamakerchao.github.io/act_TEST/
+主頁：https://dreamakerchao.github.io/act_TEST.html
 
-聯絡：[https://dreamakerchao.github.io/act_TEST/contact_info/]https://dreamakerchao.github.io/act_TEST/contact_info/
+聯絡：https://dreamakerchao.github.io/act_TEST/contact_info.html
 
-位置：[https://dreamakerchao.github.io/act_TEST/loc_info/]https://dreamakerchao.github.io/act_TEST/loc_info/
+位置：https://dreamakerchao.github.io/act_TEST/loc_info.html
 
-相關：[ttps://dreamakerchao.github.io/act_TEST/other_info/]https://dreamakerchao.github.io/act_TEST/other_info/
+相關：https://dreamakerchao.github.io/act_TEST/other_info.html
