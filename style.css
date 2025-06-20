@@ -10,12 +10,6 @@ body {
     margin: 1rem;
   }
   
-  .slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  
   .slider-wrap {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -33,6 +27,12 @@ body {
     max-width: 100%;
     scroll-snap-align: start;
     margin-bottom: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .image-wrapper {
+    position: relative;
   }
   
   .slide img {
@@ -43,8 +43,9 @@ body {
   }
   
   .tag {
-    display: inline-block;
-    margin-top: 4px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
     background-color: white;
     color: crimson;
     padding: 4px 12px;
@@ -59,25 +60,16 @@ body {
     border-color: gray;
   }
   
-  .arrow {
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: #aaa;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0.3rem 0.6rem;
-    border-radius: 50%;
-    pointer-events: none;
-    user-select: none;
-    z-index: 10;
+  /* RWD: 若畫面較寬可顯示 2 張以上 */
+  @media (min-width: 768px) {
+    .slide {
+      flex: 0 0 50%;
+    }
   }
   
-  .arrow-left {
-    left: 10px;
-  }
-  
-  .arrow-right {
-    right: 10px;
+  @media (min-width: 1200px) {
+    .slide {
+      flex: 0 0 33.33%;
+    }
   }
   
