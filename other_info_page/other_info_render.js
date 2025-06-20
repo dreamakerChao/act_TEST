@@ -1,4 +1,4 @@
-fetch('info.json')
+fetch('other_info.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById('info-container');
@@ -11,21 +11,14 @@ fetch('info.json')
       h2.textContent = section.category;
       sectionDiv.appendChild(h2);
 
-      // 是否包含圖片
       const hasImageOnly = section.items.length === 1 && section.items[0].image;
 
       if (hasImageOnly) {
         const item = section.items[0];
-        const imgLink = document.createElement('a');
-        imgLink.href = item.image;
-        imgLink.target = '_blank';
-
         const img = document.createElement('img');
         img.src = item.image;
         img.alt = item.alt || '';
-        imgLink.appendChild(img);
-
-        sectionDiv.appendChild(imgLink);
+        sectionDiv.appendChild(img); // 直接顯示圖片，不包 <a>
       } else {
         const ul = document.createElement('ul');
 
