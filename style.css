@@ -45,7 +45,8 @@ h1, h2 {
 .image-wrapper {
   position: relative;
   width: 100%;
-  max-height: 220px; /* 限制圖片高度 */
+  aspect-ratio: 210 / 297; /* A4比例：210mm x 297mm */
+  max-width: 280px; /* 控制圖片實際寬度（你可依需求調整） */
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
@@ -54,9 +55,8 @@ h1, h2 {
 
 .image-wrapper img {
   width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: contain; /* 確保圖片完整呈現不變形 */
+  height: 100%;
+  object-fit: contain; /* 保留整張圖片不被裁切 */
   display: block;
 }
 
