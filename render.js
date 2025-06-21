@@ -73,9 +73,12 @@ function renderDetail(event) {
   container.className = 'event-detail-container';
 
   container.innerHTML = `
-    <h2 onclick="location.reload()" style="cursor: pointer; color:rgb(114, 224, 118); margin-top: 1rem;">← 回上頁</h2>
-    <h1>${event.title}</h1>
+    <h2 onclick="location.reload()" style="cursor: pointer; color:rgb(114, 224, 118); margin: 1rem auto 0.5rem;">← 回上頁</h2>
     
+    <img src="${event.cover}" alt="${event.title}" style="aspect-ratio: 210 / 297; max-width: 300px; width: 100%; display:block; margin:1rem auto 1.5rem; border-radius:8px;" />
+
+    <h1 style="margin-bottom: 1rem;">${event.title}</h1>
+
     <table style="margin: 0 auto; text-align: left; border-collapse: collapse;">
       <tr><th style="padding: 6px 16px;">活動標籤</th><td style="padding: 6px 16px;">${event.label}</td></tr>
       <tr><th style="padding: 6px 16px;">活動時間</th><td style="padding: 6px 16px;">${formatDateTime(event.time)}</td></tr>
@@ -89,10 +92,7 @@ function renderDetail(event) {
       <tr><th style="padding: 6px 16px;">活動說明</th><td style="padding: 6px 16px;">${event.description}</td></tr>
       <tr><th style="padding: 6px 16px;">報名連結</th><td style="padding: 6px 16px;"><a href="${event.link}" target="_blank">${event.link}</a></td></tr>
     </table>
-    <img src="${event.cover}" alt="${event.title}" style="max-width:400px; width:100%; display:block; margin:1rem auto; border-radius:8px;" />
   `;
 
   document.body.appendChild(container);
 }
-
-
