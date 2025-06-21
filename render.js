@@ -1,63 +1,98 @@
-function formatDateWithWeekday(dateStr) {
-  const [yy, mm, dd] = dateStr.split('/').map(Number);
-  const dateObj = new Date(2000 + yy, mm - 1, dd); // 補上 20xx 年
-  const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
-  const weekday = weekdays[dateObj.getDay()];
-  return `${dateStr} (${weekday})`;
-}
-
 fetch('events.json')
-  .then((response) => response.json())
-  .then((data) => {
+  .then(response => response.json())
+  .then(data => {
     const slider = document.getElementById('slider');
     const list = document.getElementById('event-list');
 
-    data.forEach((event) => {
-      // --- 圖片先用 Image() 載入，確保圖片載入完成才插入 DOM ---
+    data.forEach((event, i) => {
+      // === 建立圖片卡片 ===
       const img = new Image();
-      img.src = event.image;
+      img.src = event.cover;
       img.alt = event.title;
+
+      const showDetail = () => renderDetail(event);
 
       img.onload = () => {
         const slide = document.createElement('div');
         slide.className = 'slide';
 
-        if (event.tag === '新') slide.classList.add('new');
-        if (event.tag === '已過期') slide.classList.add('expired');
-        if (event.tag === '報名中') slide.classList.add('open');
+        if (event.label === '新') slide.classList.add('new');
+        if (event.label === '已過期') slide.classList.add('expired');
+        if (event.label === '報名中') slide.classList.add('open');
 
         const wrapper = document.createElement('div');
         wrapper.className = 'image-wrapper';
 
         const link = document.createElement('a');
-        link.href = event.link;
+        link.href = 'javascript:void(0)';
+        link.onclick = showDetail;
         link.appendChild(img);
-
         wrapper.appendChild(link);
-        slide.appendChild(document.createElement('span')).className = 'tag';
-        slide.querySelector('.tag').textContent = event.tag;
-        slide.appendChild(wrapper);
 
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = event.label;
+
+        slide.appendChild(tag);
+        slide.appendChild(wrapper);
         slider.appendChild(slide);
       };
 
       img.onerror = () => {
-        console.warn(`圖片載入失敗：${event.image}`);
+        console.warn(`圖片載入失敗：${event.cover}`);
       };
 
-      // --- 清單區塊 ---
+      // === 活動列表區塊 ===
       const li = document.createElement('li');
-      if (event.tag === '新') li.classList.add('new');
-      if (event.tag === '已過期') li.classList.add('expired');
-      if (event.tag === '報名中') li.classList.add('open');
+      if (event.label === '新') li.classList.add('new');
+      if (event.label === '已過期') li.classList.add('expired');
+      if (event.label === '報名中') li.classList.add('open');
 
-      const formattedDate = formatDateWithWeekday(event.date);
       li.innerHTML = `
-        <a href="${event.link}">${event.title}</a>
-        <span class="date">${formattedDate}</span>
-        <span class="status">${event.tag}</span>
+        <a href="javascript:void(0)">${event.title}</a>
+        <span class="date">${event.time}</span>
+        <span class="status">${event.label}</span>
       `;
+      li.querySelector('a').onclick = showDetail;
+
       list.appendChild(li);
     });
   })
-  .catch((err) => console.error('載入活動資料失敗：', err));
+  .catch(error => console.error('載入活動資料失敗：', error));
+
+// === 詳情顯示函式 ===
+function renderDetail(event) {
+  document.body.innerHTML = ''; // 清空畫面
+
+  const formatDateTime = (str) => {
+    const [yy, mm, dd, hm] = str.split('/');
+    return `20${yy}年${mm}月${dd}日 ${hm}`;
+  };
+
+  const container = document.createElement('div');
+  container.className = 'event-detail-container';
+
+  container.innerHTML = `
+    <h2 onclick="location.reload()" style="cursor: pointer; color:rgb(114, 224, 118); margin-top: 1rem;">← 回上頁</h2>
+    <h1>${event.title}</h1>
+    
+    <table style="margin: 0 auto; text-align: left; border-collapse: collapse;">
+      <tr><th style="padding: 6px 16px;">活動標籤</th><td style="padding: 6px 16px;">${event.label}</td></tr>
+      <tr><th style="padding: 6px 16px;">活動時間</th><td style="padding: 6px 16px;">${formatDateTime(event.time)}</td></tr>
+      <tr><th style="padding: 6px 16px;">截止時間</th><td style="padding: 6px 16px;">${formatDateTime(event.deadline)}</td></tr>
+      <tr><th style="padding: 6px 16px;">活動地點</th><td style="padding: 6px 16px;">${event.location}</td></tr>
+      <tr><th style="padding: 6px 16px;">負責講師</th><td style="padding: 6px 16px;">${event.speaker}</td></tr>
+      <tr><th style="padding: 6px 16px;">承辦人員</th><td style="padding: 6px 16px;">${event.host}</td></tr>
+      <tr><th style="padding: 6px 16px;">聯絡信箱</th><td style="padding: 6px 16px;"><a href="mailto:${event.email}">${event.email}</a></td></tr>
+      <tr><th style="padding: 6px 16px;">聯絡電話</th><td style="padding: 6px 16px;"><a href="tel:${event.phone}">${event.phone}</a></td></tr>
+      <tr><th style="padding: 6px 16px;">參與對象</th><td style="padding: 6px 16px;">${event.target}</td></tr>
+      <tr><th style="padding: 6px 16px;">活動說明</th><td style="padding: 6px 16px;">${event.description}</td></tr>
+      <tr><th style="padding: 6px 16px;">報名連結</th><td style="padding: 6px 16px;"><a href="${event.link}" target="_blank">${event.link}</a></td></tr>
+    </table>
+    <img src="${event.cover}" alt="${event.title}" style="max-width:400px; width:100%; display:block; margin:1rem auto; border-radius:8px;" />
+  `;
+
+  document.body.appendChild(container);
+}
+
+

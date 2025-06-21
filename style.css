@@ -1,4 +1,4 @@
-/* 基本樣式 */
+/* === 基本樣式 === */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -15,7 +15,7 @@ h1, h2 {
   text-align: center;
 }
 
-/* 圖片輪播區容器 */
+/* === 圖片輪播區容器 === */
 .slider-wrap {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -24,42 +24,40 @@ h1, h2 {
   box-sizing: border-box;
 }
 
-/* 橫向排列卡片 */
 .slider {
   display: flex;
   gap: 1rem;
 }
 
-/* 單一活動卡片 */
+/* === 活動卡片樣式（放大版） === */
 .slide {
   flex: 0 0 auto;
-  width: 80vw;
-  max-width: 300px;
+  width: 90vw;          /* 原80vw */
+  max-width: 360px;     /* 原300px */
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* 活動圖片容器 */
+/* === 活動圖片 === */
 .image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3; /* 建議固定比例，避免圖片比例錯亂 */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
 }
 
-/* 活動圖片樣式 */
 .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 顯示完整圖片；若要裁切可改為 cover */
+  object-fit: contain;
   display: block;
 }
 
-/* 標籤樣式 */
+/* === 標籤樣式 === */
 .tag {
   margin-bottom: 8px;
   padding: 4px 12px;
@@ -73,41 +71,39 @@ h1, h2 {
   white-space: nowrap;
 }
 
-/* 狀態樣式 */
-.slide.new .tag,
-li.new .status {
+/* === 標籤狀態樣式 === */
+.slide.new .tag, li.new .status {
   color: #ff4d4d;
   border-color: #ff4d4d;
 }
-
-.slide.open .tag,
-li.open .status {
+.slide.open .tag, li.open .status {
   color: #4caf50;
   border-color: #4caf50;
 }
-
-.slide.expired .tag,
-li.expired .status {
+.slide.expired .tag, li.expired .status {
   color: #aaaaaa;
   border-color: #aaaaaa;
 }
 
-/* 響應式調整圖片卡片寬度 */
+/* === 響應式設定（放大卡片）=== */
 @media (min-width: 1025px) {
   .slide {
-    width: 28vw;
+    width: 32vw;
+    max-width: 400px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .slide {
-    width: 38vw;
+    width: 42vw;
+    max-width: 380px;
   }
 }
 
 @media (max-width: 768px) {
   .slide {
-    width: 80vw;
+    width: 90vw;
+    max-width: 360px;
   }
 
   .tag {
@@ -116,7 +112,7 @@ li.expired .status {
   }
 }
 
-/* 活動清單區 */
+/* === 活動清單 === */
 .list-wrap {
   max-width: 800px;
   margin: 2rem auto;
@@ -124,7 +120,6 @@ li.expired .status {
   text-align: left;
 }
 
-/* 清單樣式 */
 .event-list {
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -145,7 +140,6 @@ li.expired .status {
   text-decoration: underline;
 }
 
-/* 清單中的狀態文字樣式 */
 .status {
   margin-left: 0.5em;
   font-size: 0.8rem;
@@ -156,4 +150,100 @@ li.expired .status {
   margin-left: 8px;
   color: #666;
   font-size: 0.9em;
+}
+
+/* === Tab 按鈕 === */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 1rem 0;
+  border-bottom: 2px solid #333;
+}
+
+.tab-buttons h2 {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s, font-weight 0.3s;
+}
+
+.tab-buttons h2.active {
+  font-weight: bold;
+  border-color: #f0f0f0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* === 詳情頁樣式 === */
+.event-detail-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* 活動圖片置中 */
+.event-detail-container img {
+  max-width: 90%;
+  width: 400px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+
+/* 表格樣式 */
+.event-detail-container table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.event-detail-container th {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 16px;
+  width: 35%;
+  color: #ffffff;
+}
+
+.event-detail-container td {
+  padding: 10px 16px;
+  white-space: pre-line;
+  color: #f0f0f0;
+}
+
+/* 詳情頁連結樣式 */
+.event-detail-container a {
+  color: #4fc3f7;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.event-detail-container a:hover {
+  color: #81d4fa;
+}
+
+/* 手機微調 */
+@media (max-width: 480px) {
+  .event-detail-container table {
+    font-size: 0.95rem;
+  }
+
+  .event-detail-container th,
+  .event-detail-container td {
+    padding: 8px 10px;
+  }
 }

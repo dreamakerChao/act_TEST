@@ -16,14 +16,35 @@
     </div>
   </div>
 
-  <!-- 活動清單區 -->
-  <div class="list-wrap">
-    <h2>活動列表</h2>
-    <ul id="event-list" class="event-list">
-      <!-- JS 插入清單項目 -->
-    </ul>
+  <!-- 切換標題（h2 當作按鈕） -->
+  <div class="tab-buttons">
+    <h2 onclick="showTab('tab-events')" id="tab-title-events">活動列表</h2>
+    <h2 onclick="showTab('tab-announcements')" id="tab-title-announcements" class="active">最新公告</h2>
   </div>
 
+  <!-- 活動列表 -->
+  <div id="tab-events" class="tab-content">
+    <ul id="event-list" class="event-list"></ul>
+  </div>
+
+  <!-- 最新公告 -->
+  <div id="tab-announcements" class="tab-content active">
+    <ul id="announcement-list" class="announcement-list"></ul>
+  </div>
+
+
+  <!-- 切換邏輯 -->
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-buttons h2').forEach(title => title.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      const titleId = 'tab-title-' + tabId.split('-')[1];
+      document.getElementById(titleId).classList.add('active');
+    }
+  </script>
+
+  <!-- 資料載入與渲染 -->
   <script src="render.js"></script>
 </body>
 </html>
