@@ -27,13 +27,14 @@ h1, h2 {
 .slider {
   display: flex;
   gap: 1rem;
+  padding-right: 1rem; /* 避免最後一張卡片被裁切 */
 }
 
-/* === 活動卡片樣式（放大版） === */
+/* === 活動卡片樣式 === */
 .slide {
   flex: 0 0 auto;
-  width: 90vw;          /* 原80vw */
-  max-width: 360px;     /* 原300px */
+  width: 80vw;
+  max-width: 300px;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
@@ -44,6 +45,7 @@ h1, h2 {
 .image-wrapper {
   position: relative;
   width: 100%;
+  max-height: 220px; /* 限制圖片高度 */
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
@@ -51,9 +53,10 @@ h1, h2 {
 }
 
 .image-wrapper img {
-  width: auto;
-  height: 80%;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain; /* 確保圖片完整呈現不變形 */
   display: block;
 }
 
@@ -85,26 +88,26 @@ h1, h2 {
   border-color: #aaaaaa;
 }
 
-/* 桌機版：留空間避免卡片右側被截斷，調整寬度與最大寬度 */
+/* 桌機版 */
 @media (min-width: 1025px) {
   .slide {
-    width: 28vw;           /* 從 32vw 調小，讓畫面容納多張卡片不被遮住 */
-    max-width: 360px;      /* 控制最大寬度，避免過寬 */
+    width: 28vw;
+    max-width: 360px;
   }
 }
 
-/* 平板版：適度放大但仍留邊界 */
+/* 平板版 */
 @media (min-width: 769px) and (max-width: 1024px) {
   .slide {
-    width: 38vw;           /* 避免擠滿整列 */
+    width: 38vw;
     max-width: 340px;
   }
 }
 
-/* 手機版：最大化使用寬度，但預留左右空間 */
+/* 手機版 */
 @media (max-width: 768px) {
   .slide {
-    width: 85vw;           /* 稍微縮小，避免超過螢幕 */
+    width: 85vw;
     max-width: 320px;
   }
 
@@ -194,7 +197,6 @@ h1, h2 {
   text-align: center;
 }
 
-/* 活動圖片置中 */
 .event-detail-container img {
   max-width: 90%;
   width: 400px;
