@@ -33,12 +33,13 @@ h1, h2 {
 /* === 活動卡片樣式 === */
 .slide {
   flex: 0 0 auto;
-  width: 80vw;
-  max-width: 300px;
+  width: 75vw;
+  max-width: 280px;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 1vw;
 }
 
 /* === 活動圖片 === */
